@@ -29,80 +29,103 @@ class _LoginPageState extends ConsumerState<LoginPage> {
   @override
   Widget build(BuildContext context) {
     ref.listen(authProvider, (previous, next) {
-      if(next.isError){
+      if (next.isError) {
         Toasts.showFailure(next.errMessage);
-      }else if(next.isSuccess){
+      } else if (next.isSuccess) {
         Toasts.showSuccess('Login Success');
-        Get.offAll(()=> LoginStatus());
+        Get.offAll(() => LoginStatus());
       }
     });
     final auth = ref.watch(authProvider);
     return Scaffold(
-      appBar: AppBar(
-       title:  Text('Login',style: TextStyles.tileTitle,)
-      ),
-      body: FormBuilder(
-        key: _formKey,
-        child: ListView(
-          padding: EdgeInsets.symmetric(vertical: 16.w, horizontal: 16.w),
-          children: [
-            SizedBox(height: 40.h,),
-            CustomTextField(
-              controller: emailController,
-              labelText: 'Email',
-              hintText: 'Email',
-              name: 'email',
-              keyboardType: TextInputType.emailAddress,
-                validator: (val){
-                  final validator = Validator(
-                      validators: [ const RequiredValidator(), const EmailValidator() ]
-                  );
-                  return validator.validate(
-                    label: 'This field',
-                    value: val,
-                  );
-                }),
-            CustomTextField(
-              controller: passwordController,
-              labelText: 'Password',
-              hintText: 'Password',
-              name: 'password',
-              obscureText: obscureText,
-              onChanged: (val) {setState(() {});},
-              suffixIcon: passwordController.text.trim().isEmpty ? null :
-              Material(
-                color: Colors.transparent,
-                child: InkWell(
-                  splashColor: Colors.green.shade100,
-                    borderRadius: BorderRadius.circular(60.0),
-                    onTap: (){setState(() {obscureText = !obscureText;});},
-                    child: obscureText ? Icon(Icons.lock, color: primaryColor,) : Icon(Icons.lock_open, color: primaryColor,)),
-              ),
-              keyboardType: TextInputType.emailAddress,
-                validator: (val){
-                  final validator = Validator(
-                      validators: [ const RequiredValidator()]
-                  );
-                  return validator.validate(
-                    label: 'This field',
-                    value: val,
-                  );
-                }),
-            SizedBox(height: 10.h,),
-            CustomButtons(onPressed: (){
-              _formKey.currentState!.save();
-              FocusScope.of(context).unfocus();
-              if(_formKey.currentState!.saveAndValidate()){
-                ref.read(authProvider.notifier).userLogin(
-                    email: emailController.text.trim(),
-                    password: passwordController.text.trim(),
-                    fcm_token: 'fcm_token'
-                );
-              }
-            }, text: auth.isLoad ? 'Please wait...' : 'LOGIN')
-          ],
+        appBar: AppBar(
+          title: Text(
+            'Login',
+            style: TextStyles.appBarStyle,
+          ),
+          centerTitle: true,
         ),
-      )
-    );
+        body: FormBuilder(
+          key: _formKey,
+          child: ListView(
+            padding: EdgeInsets.symmetric(vertical: 16.w, horizontal: 16.w),
+            children: [
+              SizedBox(
+                height: 40.h,
+              ),
+              CustomTextField(
+                  controller: emailController,
+                  labelText: 'Email',
+                  hintText: 'Email',
+                  name: 'email',
+                  keyboardType: TextInputType.emailAddress,
+                  validator: (val) {
+                    final validator = Validator(validators: [
+                      const RequiredValidator(),
+                      const EmailValidator()
+                    ]);
+                    return validator.validate(
+                      label: 'This field',
+                      value: val,
+                    );
+                  }),
+              CustomTextField(
+                  controller: passwordController,
+                  labelText: 'Password',
+                  hintText: 'Password',
+                  name: 'password',
+                  obscureText: obscureText,
+                  keyboardType: TextInputType.text,
+                  onChanged: (val) {
+                    setState(() {});
+                  },
+                  suffixIcon: passwordController.text.trim().isEmpty
+                      ? null
+                      : Material(
+                          color: Colors.transparent,
+                          child: InkWell(
+                              splashColor: Colors.green.shade100,
+                              borderRadius: BorderRadius.circular(60.0),
+                              onTap: () {
+                                setState(() {
+                                  obscureText = !obscureText;
+                                });
+                              },
+                              child: obscureText
+                                  ? Icon(
+                                      Icons.lock,
+                                      color: primaryColor,
+                                    )
+                                  : Icon(
+                                      Icons.lock_open,
+                                      color: primaryColor,
+                                    )),
+                        ),
+                  validator: (val) {
+                    final validator =
+                        Validator(validators: [const RequiredValidator()]);
+                    return validator.validate(
+                      label: 'This field',
+                      value: val,
+                    );
+                  }),
+              SizedBox(
+                height: 10.h,
+              ),
+              CustomButtons(
+                  onPressed: () {
+                    _formKey.currentState!.save();
+                    FocusScope.of(context).unfocus();
+                    if (_formKey.currentState!.saveAndValidate()) {
+                      ref.read(authProvider.notifier).userLogin(
+                          email: emailController.text.trim(),
+                          password: passwordController.text.trim(),
+                          fcm_token: 'fcm_token');
+                    }
+                  },
+                  text: auth.isLoad ? 'Please wait...' : 'LOGIN')
+            ],
+          ),
+        ));
   }
 }

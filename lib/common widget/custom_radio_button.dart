@@ -9,11 +9,13 @@ class CustomRadioButton extends StatelessWidget {
   List<FormBuilderFieldOption<dynamic>> options;
   String name;
   String label;
+  void Function(dynamic)? onChanged;
 
   CustomRadioButton({
     required this.options,
     required this.name,
-    required this.label
+    required this.label,
+    this.onChanged
 });
 
 
@@ -26,7 +28,7 @@ class CustomRadioButton extends StatelessWidget {
         children: [
           FormBuilderRadioGroup(
             autovalidateMode: AutovalidateMode.onUserInteraction,
-            name: '',
+            name: name,
             decoration: InputDecoration(
               labelText: label,
               labelStyle: TextStyle(fontSize: 22.sp,
@@ -37,6 +39,7 @@ class CustomRadioButton extends StatelessWidget {
               contentPadding: EdgeInsets.zero,
             ),
             options: options,
+            onChanged: onChanged,
             validator: (val){
               final validator = Validator(
                   validators: [

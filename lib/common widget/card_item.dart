@@ -20,7 +20,7 @@ class CardItem extends StatelessWidget {
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: 6.w),
           alignment: Alignment.center,
-          height: 120.h,
+          height: 125.h,
           width: 155.w,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(6.r),

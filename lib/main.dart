@@ -31,19 +31,18 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
+      designSize: Size(411.42857142857144,875.4285714285714),
       builder: (BuildContext context, Widget? child) {
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
             useMaterial3: true,
             appBarTheme: const AppBarTheme(
-              color: lightWhite,
+              color: backgroundColor,
               surfaceTintColor: Colors.transparent
             ),
-            scaffoldBackgroundColor: lightWhite,
-            colorScheme: ColorScheme.fromSwatch().copyWith(
-              primary: Colors.white,
-            ),
+            scaffoldBackgroundColor: backgroundColor,
+            // colorScheme: ColorScheme.fromSwatch().copyWith(),
           ),
           home: LoginStatus(),
         );

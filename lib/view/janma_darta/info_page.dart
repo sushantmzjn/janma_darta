@@ -5,6 +5,7 @@ import 'package:janma_darta/common%20widget/custom_button.dart';
 import 'package:janma_darta/constant/colors.dart';
 import 'package:janma_darta/constant/text_styles.dart';
 
+import '../../common widget/table_info.dart';
 import 'janma_darta.dart';
 import 'janma_darta_info_model/Janma_darta_info.dart';
 class InfoPage extends StatelessWidget {
@@ -24,7 +25,7 @@ class InfoPage extends StatelessWidget {
           SizedBox(height: 18.h,),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 10.w),
-            child: Text('आवश्यक कागजातहरू',style: TextStyles.labelTextStyle,),
+            child: Text('आवश्यक कागजातहरू :-',style: TextStyles.labelStyle1,),
           ),
           ListView.builder(
             shrinkWrap: true,
@@ -40,11 +41,16 @@ class InfoPage extends StatelessWidget {
                       ],
                     ));
           }),
-          Table(
-            border: TableBorder.all(),
-            children: [
-
-            ],
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 10.w),
+            child: LeftHeaderTable(
+              leftHeaders: ['समय', 'सुल्क', 'सेवा दिने व्यक्ति'],
+              data: [
+                ['सोहि दिन तुरुन्तै'],
+                ['रु १५०'],
+                ['वडा अधश्य'],
+              ],
+            ),
           ),
           Padding(
             padding: EdgeInsets.symmetric(vertical: 12.w,horizontal: 10.w),

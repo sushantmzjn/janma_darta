@@ -39,6 +39,9 @@ class CustomSearchDropDown<T> extends StatelessWidget {
           borderSide: BorderSide(color: mediumWhite, width: 1.h)
         ),
         child: DropdownSearch<T>(
+          popupProps: PopupProps.menu(
+            fit: FlexFit.loose,
+          ),
           enabled: enabled,
           autoValidateMode: AutovalidateMode.onUserInteraction,
           dropdownDecoratorProps: DropDownDecoratorProps(
@@ -46,7 +49,7 @@ class CustomSearchDropDown<T> extends StatelessWidget {
               dropdownSearchDecoration: InputDecoration(
                 border: InputBorder.none,
                 errorStyle: TextStyle(height: 2),
-                contentPadding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.w),
+                contentPadding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 20.w),
                 labelText: labelText,
                 hintText: hintText,
                 labelStyle: TextStyles.labelTextStyle,

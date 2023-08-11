@@ -18,9 +18,9 @@ class CustomButtons extends StatelessWidget {
             borderRadius: BorderRadius.circular(8.0)
           ),
           backgroundColor: primaryColor,
-          minimumSize: Size(double.infinity, 40.h)
+          minimumSize: Size(double.infinity, 56.h)
         ),
-        child: Text(text, style: TextStyle(fontSize: 16.sp),)
+        child: Text(text, style: TextStyle(fontSize: 18.sp, color: Colors.white),)
     );
   }
 }

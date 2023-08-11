@@ -22,7 +22,7 @@ class TextStyles {
   static TextStyle appBarStyle =  TextStyle(
   color: primaryColor,
   fontFamily: FontStyles.roboto,
-  fontSize: FontSizes.s17,
+  fontSize: FontSizes.s18,
   fontWeight: FontStyles.bold900,
   );
 
@@ -48,7 +48,7 @@ class TextStyles {
       color: darkGrey,
       fontFamily: FontStyles.roboto,
       fontWeight: FontStyles.mediumBold,
-      fontSize: FontSizes.s16);
+      fontSize: FontSizes.s20);
 
   static TextStyle drawerStyle1 = TextStyle(
       color: blackColor,
@@ -81,7 +81,7 @@ class TextStyles {
   );
 
   static TextStyle labelTextStyle = TextStyle(
-      fontSize: FontSizes.s13,
+      fontSize: FontSizes.s15,
       color: labelGrey.withOpacity(0.8),
       fontFamily: FontStyles.poppins,
       fontWeight: FontStyles.medium600
@@ -104,6 +104,7 @@ class TextStyles {
       color: labelBlack.withOpacity(0.8));
 
   static TextStyle hintStyle = TextStyle(
+    fontSize: FontSizes.s14,
       fontFamily: FontStyles.poppins, color: labelBlack.withOpacity(0.8));
 
   static TextStyle timeStyle = TextStyle(
