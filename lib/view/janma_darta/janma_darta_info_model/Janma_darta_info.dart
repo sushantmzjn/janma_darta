@@ -9,7 +9,7 @@ class JanmaInfo {
 }
 
 List<JanmaInfo> info = [
-  JanmaInfo(title: 'hdfjdhfj'),
+  JanmaInfo(title: 'सम्बन्धित वोडाको सिफारिस'),
   JanmaInfo(title: 'dfaddfa'),
   JanmaInfo(title: 'asdfd'),
   JanmaInfo(title: 'adfa'),

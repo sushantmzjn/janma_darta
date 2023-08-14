@@ -18,6 +18,14 @@ class InfoPage extends StatelessWidget {
       appBar: AppBar(
         title: Text('जन्म दर्ता', style: TextStyle(color: primaryColor,)),
         centerTitle: true,
+        leading: Container(
+            margin: const EdgeInsets.all(4),
+            decoration: BoxDecoration(
+              color: Color(0xffF1F1F1),
+              borderRadius: BorderRadius.circular(60.0)
+          ),
+          child: IconButton(onPressed: (){Navigator.of(context).pop();}, icon: Icon(Icons.arrow_back))
+        ),
       ),
       body: ListView(
         physics: const AlwaysScrollableScrollPhysics(),
@@ -36,8 +44,8 @@ class InfoPage extends StatelessWidget {
                     padding: EdgeInsets.symmetric(vertical: 2.w,horizontal: 12.w),
                     child: Row(
                       children: [
-                        Text('${index + 1}. ', style: TextStyles.labelTextStyle,),
-                        Text(info[index].title, style: TextStyles.labelTextStyle),
+                        Text('${index + 1}. ', style: TextStyles.infoStyle,),
+                        Text(info[index].title, style: TextStyles.infoStyle),
                       ],
                     ));
           }),

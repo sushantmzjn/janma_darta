@@ -14,6 +14,7 @@ class FontSizes {
   static final s16 = 16.sp;
   static final s17 = 17.sp;
   static final s18 = 18.sp;
+  static final s19 = 19.sp;
   static final s20 = 20.sp;
 }
 
@@ -48,7 +49,7 @@ class TextStyles {
       color: darkGrey,
       fontFamily: FontStyles.roboto,
       fontWeight: FontStyles.mediumBold,
-      fontSize: FontSizes.s20);
+      fontSize: FontSizes.s19);
 
   static TextStyle drawerStyle1 = TextStyle(
       color: blackColor,
@@ -110,7 +111,13 @@ class TextStyles {
   static TextStyle timeStyle = TextStyle(
       fontFamily: FontStyles.poppins,
       fontWeight: FontStyles.medium400,
-      fontSize: FontSizes.s10,
+      fontSize: FontSizes.s13,
+      color: lightGreyColor
+  );
+  static TextStyle infoStyle = TextStyle(
+      fontFamily: FontStyles.poppins,
+      fontWeight: FontStyles.medium400,
+      fontSize: FontSizes.s14,
       color: lightGreyColor
   );
 

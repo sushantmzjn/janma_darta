@@ -13,7 +13,7 @@ class LeftHeaderTable extends StatelessWidget {
     return Table(
       border: TableBorder.all(width: 0, color: Colors.black54),
       columnWidths: {
-        0: FixedColumnWidth(115.w),
+        0: FixedColumnWidth(120.w),
       },
       children: [
         // Table header row with left headers
@@ -26,7 +26,7 @@ class LeftHeaderTable extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: Colors.grey[400],
                   ),
-                  child: Text(leftHeaders[i], style: TextStyles.hintStyle),
+                  child: Text(leftHeaders[i], style: TextStyles.timeStyle),
                 ),
               ),
               // Data rows with corresponding data
@@ -37,7 +37,7 @@ class LeftHeaderTable extends StatelessWidget {
                     decoration: BoxDecoration(
                       color: Colors.grey[200],
                     ),
-                    child: Text(data[i][j], style: TextStyles.hintStyle),
+                    child: Text(data[i][j], style: TextStyles.timeStyle),
                   ),
                 ),
             ],
